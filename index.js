@@ -15,8 +15,12 @@ The function should:
   Example createMenuItem('tacos', 8, 'Lunch') should return {name: 'tacos', price: 8, category: 'Lunch'}
 */
 
-function createMenuItem(/*Your code here*/){
-    /*Your code here*/
+function createMenuItem(itemName, itemPrice, itemCategory){
+    return {
+      name: itemName,
+      price: itemPrice,
+      category: itemCategory
+    };
 }
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 1b: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -28,8 +32,11 @@ Test your createMenuItems function by doing the following:
   
   For example: createMenuItem("pizza",5,"lunch") would return this as the object: {name:"Pizza",price:5,category:"lunch"}
 */
+const newItem1 = createMenuItem('Hoagie', 5, 'Lunch');
+const newItem2 = createMenuItem('Pizza Slice', 7, 'Lunch');
+const newItem3 = createMenuItem('Chicken Salad', 12, 'Dinner');
 
-
+console.log(newItem1, newItem2, newItem3);
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 You're having a lunch special! 25% off for teachers and students, 10% off for everyone else. Add a method to the 
@@ -47,10 +54,15 @@ const burger = {
   name: "Burger", 
   price: 18, 
   category: "Lunch", 
-  
+  discount: function (personType) {
+    if (personType === 'teacher' || personType === 'student') {
+      return this.price * 0.75;
+    }
+    return this.price * 0.9;
+  }
 }
 
-
+console.log(burger.discount('teacher'));
 
 ///////////////Reviews (MVP)///////////////////
 const reviews = [
@@ -69,8 +81,7 @@ Using the reviews array above:
   1. log only Julius' feedback to the console - no function needed 
 */
 
-
-
+console.log(reviews[5].name);
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Reyna's feedback is missing! Use what you know to do the following: (no function needed) 
@@ -78,9 +89,9 @@ Reyna's feedback is missing! Use what you know to do the following: (no function
   2. log the reviews array to the console to check your work
 */
 
+reviews[7].feedback = "this place is chill with really cool people, great for getting work done on weekdays";
 
-
-
+console.log(reviews[7].feedback);
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Write a function that creates an object with name, rating, feedback, add the new review to the end of an array and returns the resulting array
